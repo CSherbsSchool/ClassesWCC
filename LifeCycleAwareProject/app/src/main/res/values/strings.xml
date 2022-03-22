@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LifeCycleAwareProject</string>
+    <string name="if_this_shows_it_is_not_working">If this shows, it is not working</string>
+</resources>
