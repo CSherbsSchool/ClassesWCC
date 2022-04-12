@@ -33,6 +33,25 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         viewHolder.itemDetail.text = ranDetails[i]
         viewHolder.itemImage.setImageResource(ranImages[i])
 
+        viewHolder.itemView.setOnClickListener {
+
+            val i2 = Intent(it.context, SecondActivity::class.java)
+
+            val sendTitle = ranTitles[i]
+
+            val sendDetail = ranDetails[i]
+
+            val sendImage = ranImages[i]
+
+            i2.putExtra("title", sendTitle)
+
+            i2.putExtra("detail", sendDetail)
+
+            i2.putExtra("image", sendImage)
+
+            it.context.startActivity(i2)
+        }
+
     }
 
 
@@ -47,27 +66,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             itemImage = itemView.findViewById(R.id.itemImage)
             itemTitle = itemView.findViewById(R.id.itemTitle)
             itemDetail = itemView.findViewById(R.id.itemDetail)
-
-            itemView.setOnClickListener {
-
-                var position: Int = getAdapterPosition()
-
-                val i = Intent(it.context, SecondActivity::class.java)
-
-                val sendTitle = MainViewModel.ranTitles[position]
-
-                val sendDetail = MainViewModel.ranDetails[position]
-
-                val sendImage = MainViewModel.ranImages[position]
-
-                i.putExtra("title", sendTitle)
-
-                i.putExtra("detail", sendDetail)
-
-                i.putExtra("image", sendImage)
-
-                it.context.startActivity(i)
-                }
 
             }
 
